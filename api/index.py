@@ -10,6 +10,6 @@ def home():
 
 @app.route("/predict")
 def predict():
-    model = tf.keras.models.load_model('api/model/test_model_00.keras')
+    # model = tf.keras.models.load_model('api/model/test_model_00.keras')
     logging.debug("model loaded!")
     return 'Prediction coming'
