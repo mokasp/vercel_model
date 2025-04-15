@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-import tflite_runtime.interpreter as tflite
+import tensorflow as tf
 import logging
 
 app = Flask(__name__)
@@ -13,7 +13,8 @@ output_details = interpreter.get_output_details()
 def home():
     return 'Hello, World! :)'
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predict")
 def predict():
+    model = tf.keras.models.load_model('api/model/test_model_00.keras')
     logging.debug("model loaded!")
     return 'Prediction coming'
